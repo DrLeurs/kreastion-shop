@@ -1,15 +1,20 @@
+<script>
+export default {}
+</script>
+
 <template>
-  <div class="about">
+  <main>
     <h1>This is an about page</h1>
-  </div>
+  </main>
 </template>
 
-<style>
+<style scoped>
 @media (min-width: 1024px) {
-  .about {
+  main {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    color: red;
   }
 }
 </style>

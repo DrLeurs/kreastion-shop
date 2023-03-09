@@ -1,9 +1,20 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+<script>
+export default {}
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <h1>home</h1>
   </main>
 </template>
+
+<style scoped>
+@media (min-width: 1024px) {
+  main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: green;
+  }
+}
+</style>
