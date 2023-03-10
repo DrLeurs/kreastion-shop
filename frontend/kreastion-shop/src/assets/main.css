@@ -11,7 +11,8 @@
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  /* color: hsla(160, 100%, 37%, 1); */
+  color: var(--kr-c-red);
   transition: 0.4s;
 }
 
@@ -28,7 +29,8 @@ h1::after {
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    /* background-color: hsla(160, 100%, 37%, 0.2); */
+    background-color: var(--kr-c-red-alpha);
   }
 }
 
