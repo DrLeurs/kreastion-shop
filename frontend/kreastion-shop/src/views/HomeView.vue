@@ -4,17 +4,17 @@ export default {}
 
 <template>
   <main>
-    <h1>home</h1>
+    <h1>Kreastion Shop &mdash;</h1>
   </main>
 </template>
 
 <style scoped>
 @media (min-width: 1024px) {
   main {
+    margin-top: 2rem;
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    color: green;
+    /* align-items: center; */
   }
 
   h1 {
