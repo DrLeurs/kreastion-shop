@@ -16,5 +16,9 @@ export default {}
     align-items: center;
     color: red;
   }
+
+  h1 {
+    color: var(--color-title);
+  }
 }
 </style>
