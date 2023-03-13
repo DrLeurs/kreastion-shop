@@ -28,6 +28,10 @@ const dataSchema = new mongoose.Schema({
     price: {
         required: true,
         type: Number
+    },
+    format: {
+        required: true,
+        type: String
     }
 });
 

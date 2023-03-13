@@ -9,7 +9,8 @@ export default {
     },
     data() {
         return {
-            product: []
+            product: [],
+            orderQuantity: 1
         }
     },
     methods: {
@@ -38,10 +39,23 @@ export default {
                         <th>Instrumentation</th>
                         <td>{{ product.instrumentation }}</td>
                     </tr>
+                    <tr>
+                        <th>Format</th>
+                        <td>{{ product.format }}</td>
+                    </tr>
+                    <tr>
+                        <th>Reference</th>
+                        <td>{{ product.reference }}</td>
+                    </tr>
                 </table>
 
                 <div class="order">
                     <h2>&euro;{{ product.price }}</h2>
+                    Qty: <input type="number" size="5" :value="orderQuantity">
+                    <button>
+                        <!-- <img alt="Kreastion logo" class="cart-logo" src="@/assets/cart.svg" /> -->
+                        Add to cart
+                    </button>
                 </div>
 
                 <p class="description">
@@ -55,6 +69,7 @@ export default {
 <style scoped>
 h2 {
     font-weight: 500;
+    margin-bottom: 0.5em;
 }
 
 th {
@@ -78,7 +93,20 @@ th {
     }
 
     .order {
-        margin-top: 1em;
+        margin-top: 2em;
+    }
+
+    .order > button {
+        margin-left: 1em;
+        font-family: Rubik, sans-serif;
+        /* font-size: large; */
+    }
+
+    .cart-logo {
+        margin-right: 1em;
+        vertical-align: bottom;
+        height: 2em;
+        width: auto;
     }
 }
 </style>

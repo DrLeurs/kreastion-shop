@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="65" height="65" />
+    <img alt="Kreastion logo" class="logo" src="@/assets/logo.svg" width="65" height="65" />
 
     <div class="wrapper">
       <nav>
