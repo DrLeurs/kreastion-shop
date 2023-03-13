@@ -40,10 +40,5 @@ export default {
     display: flex;
     flex-flow: row wrap;
   }
-
-  h1 {
-    color: var(--color-title);
-    margin-bottom: 1rem;
-  }
 }
 </style>

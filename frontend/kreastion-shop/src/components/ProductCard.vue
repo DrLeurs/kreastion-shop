@@ -6,10 +6,11 @@ export default {
 
 <template>
     <div class="product">
-        <img src="https://loremflickr.com/360/360" alt="">
-        <h3>{{ product.name }}</h3>
-        &euro;{{ product.price }}
-        <RouterLink :to="`/detail/${product._id}`">detail</RouterLink>
+        <RouterLink :to="`/detail/${product._id}`">
+            <img src="https://loremflickr.com/360/360" alt="">
+            <h3>{{ product.name }}</h3>
+            &euro;{{ product.price }}
+        </RouterLink>
     </div>
 </template>
 
@@ -29,6 +30,11 @@ export default {
 
 .product img {
     width: 100%;
+}
+
+.product > a {
+    color: inherit;
+    background-color: inherit;
 }
 
 @media (min-width: 1024px) {
