@@ -5,6 +5,7 @@ export default {
     props: ['id'],
     mounted() {
         this.fetchProduct();
+        window.scrollTo(0, 0);
     },
     data() {
         return {
