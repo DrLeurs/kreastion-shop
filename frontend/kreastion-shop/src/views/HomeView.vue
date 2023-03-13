@@ -35,12 +35,12 @@ export default {
 </template>
 
 <style scoped>
-.wrapper {
-  display: flex;
-  flex-flow: row wrap;
-}
-
 @media (min-width: 1024px) {
+  .wrapper {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
   h1 {
     color: var(--color-title);
     margin-bottom: 1rem;

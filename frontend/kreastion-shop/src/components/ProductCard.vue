@@ -14,7 +14,6 @@ export default {
 
 <style scoped>
 .product {
-    width: 20%;
     padding: 1em;
     margin: 1rem;
 
@@ -27,11 +26,13 @@ export default {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.product h3 {
-    /* font-weight: 500; */
-}
-
 .product img {
     width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .product {
+        width: 20%;
+    }
 }
 </style>
