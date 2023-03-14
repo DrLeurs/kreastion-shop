@@ -10,7 +10,9 @@ import { RouterLink, RouterView } from 'vue-router'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/cart" class="cart">Cart (0)</RouterLink>
       </nav>
+      <!-- <button class="cart">Cart (0)</button> -->
     </div>
   </header>
 
@@ -64,12 +66,21 @@ nav a:first-of-type {
     margin: 0 2rem 0 0;
   }
 
+  .wrapper {
+    display: flex;
+    align-items: baseline;
+  }
+
   nav {
     text-align: left;
     font-size: 1rem;
 
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+
+  .cart {
+    white-space: nowrap;
   }
 }
 </style>
