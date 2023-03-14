@@ -1,5 +1,17 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+import { useCartStore } from '@/stores/CartStore'
+
+// const cartStore = useCartStore();
+export default {
+  setup() {
+    const cartStore = useCartStore();
+
+    return {
+      cartStore
+    }
+  }
+}
 </script>
 
 <template>
@@ -10,7 +22,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/cart" class="cart">Cart (0)</RouterLink>
+        <RouterLink to="/cart" class="cart">Cart ({{ cartStore.totalQty }})</RouterLink>
       </nav>
       <!-- <button class="cart">Cart (0)</button> -->
     </div>

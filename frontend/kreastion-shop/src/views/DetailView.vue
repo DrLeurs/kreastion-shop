@@ -1,7 +1,16 @@
 <script>
+import { useCartStore } from '@/stores/CartStore'
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 export default {
+    setup() {
+        const cartStore = useCartStore();
+
+        return {
+            cartStore
+        }
+    },
     props: ['id'],
     mounted() {
         this.fetchProduct();
@@ -9,7 +18,7 @@ export default {
     },
     data() {
         return {
-            product: [],
+            product: {},
             orderQuantity: 1
         }
     },
@@ -18,6 +27,9 @@ export default {
             fetch(`${API_URL}/product/${this.id}`)
                 .then((response) => response.json())
                 .then((data) => this.product = data);
+        },
+        addToCart() {
+            this.cartStore.addProduct(this.product, this.orderQuantity);
         }
     }
 }
@@ -52,8 +64,8 @@ export default {
 
                 <div class="order">
                     <h2>&euro;{{ product.price }}</h2>
-                    Qty: <input type="number" size="5" :value="orderQuantity">
-                    <button>
+                    Qty: <input type="number" size="5" v-model.number="orderQuantity">
+                    <button @click="addToCart">
                         <!-- <img alt="Kreastion logo" class="cart-logo" src="@/assets/cart.svg" /> -->
                         Add to cart
                     </button>
