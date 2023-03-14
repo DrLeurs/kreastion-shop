@@ -25,6 +25,7 @@ export default {
 
 <template>
     <main>
+        <!-- <button class="return">&#x2190; Back</button> -->
         <h1>{{ product.name }}</h1>
         <div class="details">
             <img src="https://loremflickr.com/360/360" alt="">
@@ -72,6 +73,21 @@ h2 {
     margin-bottom: 0.5em;
 }
 
+.return {
+    background-color: var(--kr-c-background);
+    border: 1px solid var(--kr-c-red);
+    border-radius: 5px;
+    color: var(--kr-c-red);
+    font-size: 15px;
+    padding: .5em;
+    transition: 0.4s;
+}
+
+.return:hover {
+    background-color: var(--kr-c-red-alpha);
+    color: var(--kr-c-grey);
+}
+
 th {
     font-weight: 500;
     text-align: left;
@@ -98,8 +114,6 @@ th {
 
     .order > button {
         margin-left: 1em;
-        font-family: Rubik, sans-serif;
-        /* font-size: large; */
     }
 
     .cart-logo {
