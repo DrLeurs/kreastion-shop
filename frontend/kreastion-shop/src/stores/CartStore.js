@@ -14,6 +14,9 @@ export const useCartStore = defineStore('cart', {
                 product: product,
                 qty: qty
             });
+        },
+        removeOrderLine(orderLine) {
+            console.log(this.cart.indexOf(orderLine))
         }
     },
 

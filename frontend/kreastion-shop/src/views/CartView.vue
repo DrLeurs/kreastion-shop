@@ -28,7 +28,7 @@ export default {
         <td>{{ orderLine.product.price }}</td>
         <td>{{ orderLine.qty }}</td>
         <td>
-          <button class="remove">
+          <button class="remove" @click="cartStore.removeOrderLine(orderLine)">
             <!-- <img src="@/assets/bin.svg" alt="remove orderline"> -->
             remove
           </button>
