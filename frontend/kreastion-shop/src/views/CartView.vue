@@ -27,6 +27,15 @@ export default {
         <td>{{ orderLine.product.name }}</td>
         <td>{{ orderLine.product.price }}</td>
         <td>{{ orderLine.qty }}</td>
+        <td>
+          <button class="remove">
+            <!-- <img src="@/assets/bin.svg" alt="remove orderline"> -->
+            remove
+          </button>
+        </td>
+      </tr>
+      <tr class="spacer">
+        <td class="spacer"></td>
       </tr>
       <tr>
         <th></th>
@@ -55,5 +64,19 @@ th {
 
 td {
   padding-right: 3em;
+}
+
+td.spacer {
+  padding-top: 1em;
+}
+
+@media (min-width: 1024px) {
+  .remove {
+    height: 100%;
+  }
+
+  .remove > img {
+    width: 80%;
+  }
 }
 </style>
