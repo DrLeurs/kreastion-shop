@@ -31,7 +31,7 @@ export default {
       <tr v-for="({product, qty}, index) in cartStore.cart" :key="index">
         <td>{{ product.reference }}</td>
         <td>{{ product.name }}</td>
-        <td>{{ product.price }}</td>
+        <td>&euro; {{ product.price }}</td>
         <td>{{ qty }}</td>
         <td>
           <button class="remove" @click="cartStore.removeOrderLine(index)">
@@ -48,14 +48,14 @@ export default {
         <th></th>
         <th></th>
         <th></th>
-        <th>Total</th>
+        <th>TOTAL</th>
       </tr>
       <tr>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <td>{{ cartStore.totalAmount }}</td>
+        <td class="total-amount">&euro; {{ cartStore.totalAmount }}</td>
       </tr>
     </table>
   </main>
@@ -74,6 +74,11 @@ td {
 
 td.spacer {
   padding-top: 1em;
+}
+
+td.total-amount {
+  font-size: 1.5em;
+  font-weight: 500;
 }
 
 @media (min-width: 1024px) {
