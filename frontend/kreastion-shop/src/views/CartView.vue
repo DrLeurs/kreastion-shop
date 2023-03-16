@@ -58,8 +58,8 @@ export default {
         <td class="total-amount">&euro; {{ cartStore.totalAmount }}</td>
       </tr>
     </table>
-    <RouterLink to="/checkout">
-      <button class="order">Go to checkout &RightArrow;</button>
+    <RouterLink to="/checkout" v-if="! cartStore.isEmpty">
+      <button class="checkout">Go to checkout &RightArrow;</button>
     </RouterLink>
   </main>
 </template>
@@ -82,6 +82,16 @@ td.spacer {
 td.total-amount {
   font-size: 1.5em;
   font-weight: 500;
+}
+
+button.checkout {
+  background-color: var(--kr-c-red);
+  border: none;
+  padding: 1rem;
+  font-size: 1.5em;
+  color: var(--kr-c-white-soft);
+  font-variant-caps: all-small-caps;
+  /* width: 50%; */
 }
 
 @media (min-width: 1024px) {
