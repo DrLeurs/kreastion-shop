@@ -23,7 +23,7 @@ export const useCartStore = defineStore('cart', {
   getters: {
     totalAmount: (state) => {
       let total = 0;
-      for(const orderLine of state.cart) {
+      for (const orderLine of state.cart) {
         total += orderLine.product.price * orderLine.qty;
       }
       
@@ -31,11 +31,19 @@ export const useCartStore = defineStore('cart', {
     },
     totalQty: (state) => {
       let total = 0;
-      for(const orderLine of state.cart) {
+      for (const orderLine of state.cart) {
         total += orderLine.qty;
       }
       
       return total;
+    },
+    isEmpty() {
+      if (this.totalQty == 0) {
+        return true;
+      }
+      else {
+        return false;
+      }
     }
   }
 })

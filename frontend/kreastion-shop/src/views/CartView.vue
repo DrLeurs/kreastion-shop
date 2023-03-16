@@ -8,6 +8,9 @@ export default {
     return {
       cartStore
     }
+  },
+  mounted() {
+    console.log(this.cartStore.isEmpty)
   }
 }
 </script>
@@ -15,7 +18,10 @@ export default {
 <template>
   <main>
     <h1>Cart</h1>
-    <table>
+    <p v-if="cartStore.isEmpty">
+      Your cart is empty ;)
+    </p>
+    <table v-else>
       <tr>
         <th>Reference</th>
         <th>Name</th>
