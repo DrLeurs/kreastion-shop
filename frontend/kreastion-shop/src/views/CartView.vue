@@ -58,6 +58,9 @@ export default {
         <td class="total-amount">&euro; {{ cartStore.totalAmount }}</td>
       </tr>
     </table>
+    <RouterLink to="/checkout">
+      <button class="order">Go to checkout &RightArrow;</button>
+    </RouterLink>
   </main>
 </template>
 
