@@ -85,13 +85,21 @@ td.total-amount {
 }
 
 button.checkout {
-  background-color: var(--kr-c-red);
+  background-color: var(--kr-c-red-dark);
   border: none;
-  padding: 1rem;
+  padding: 0.8rem;
   font-size: 1.5em;
   color: var(--kr-c-white-soft);
   font-variant-caps: all-small-caps;
   /* width: 50%; */
+}
+
+button.checkout:hover {
+  background-color: var(--kr-c-red);
+}
+
+button.checkout:active {
+  background-color: var(--kr-c-red-dark);
 }
 
 @media (min-width: 1024px) {
