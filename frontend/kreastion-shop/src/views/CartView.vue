@@ -22,11 +22,11 @@ export default {
         <th>Price</th>
         <th>Quantity</th>
       </tr>
-      <tr v-for="(orderLine, index) in cartStore.cart" :key="orderLine.product._id">
-        <td>{{ orderLine.product.reference }}</td>
-        <td>{{ orderLine.product.name }}</td>
-        <td>{{ orderLine.product.price }}</td>
-        <td>{{ orderLine.qty }}</td>
+      <tr v-for="({product, qty}, index) in cartStore.cart" :key="index">
+        <td>{{ product.reference }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ qty }}</td>
         <td>
           <button class="remove" @click="cartStore.removeOrderLine(index)">
             <!-- <img src="@/assets/bin.svg" alt="remove orderline"> -->
