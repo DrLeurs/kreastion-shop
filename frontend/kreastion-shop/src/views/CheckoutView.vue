@@ -60,7 +60,11 @@ export default {}
         </label>
       </div>
     </div>
-    <h2>Shipping</h2>
+    <div class="shipping">
+      <h2>Shipping</h2>
+      <input type="checkbox" name="shipping" id="shipping">
+      <label for="shipping">Ship to a different address?</label>
+    </div>
     <h2>Your order</h2>
     <h2>Continue to payment</h2>
   </main>
@@ -91,6 +95,10 @@ label > span {
 
 #postcode {
   width: 6em;
+}
+
+#shipping {
+  margin-right: .5rem;
 }
 
 input[type=text], select {
