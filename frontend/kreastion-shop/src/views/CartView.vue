@@ -1,10 +1,12 @@
 <script>
-import CartListing from '@/components/CartListing.vue';
-import { useCartStore } from '@/stores/CartStore';
+import CartListing from '@/components/CartListing.vue'
+import GotoButton from '@/components/GotoButton.vue'
+import { useCartStore } from '@/stores/CartStore'
 
 export default {
   components: {
-    CartListing
+    CartListing,
+    GotoButton
   },
   setup() {
     const cartStore = useCartStore();
@@ -20,28 +22,9 @@ export default {
   <main>
     <h1>Cart</h1>
     <CartListing />
-    <RouterLink to="/checkout" v-if="! cartStore.isEmpty">
-      <button class="checkout">Go to checkout &RightArrow;</button>
-    </RouterLink>
+    <GotoButton>Go to checkout &RightArrow;</GotoButton>
   </main>
 </template>
 
 <style scoped>
-button.checkout {
-  background-color: var(--kr-c-red-dark);
-  border: none;
-  padding: 0.8rem;
-  font-size: 1.5em;
-  color: var(--kr-c-white-soft);
-  font-variant-caps: all-small-caps;
-  /* width: 50%; */
-}
-
-button.checkout:hover {
-  background-color: var(--kr-c-red);
-}
-
-button.checkout:active {
-  background-color: var(--kr-c-red-dark);
-}
 </style>

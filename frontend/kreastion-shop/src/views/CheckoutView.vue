@@ -1,12 +1,13 @@
 <script>
-import { useCartStore } from '@/stores/CartStore'
 import AddressDetails from '@/components/AddressDetails.vue'
 import CartListing from '@/components/CartListing.vue'
+import GotoButton from '@/components/GotoButton.vue'
 
 export default {
   components: {
     AddressDetails,
-    CartListing
+    CartListing,
+    GotoButton
   },
   data() {
     return {
@@ -37,6 +38,7 @@ export default {
     <CartListing />
 
     <h2>Continue to payment</h2>
+    <GotoButton>Proceed to payment &rightarrow;</GotoButton>
   </main>
 </template>
 
