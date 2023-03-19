@@ -1,10 +1,12 @@
 <script>
-import { useCartStore } from '@/stores/CartStore';
-import AddressDetails from '@/components/AddressDetails.vue';
+import { useCartStore } from '@/stores/CartStore'
+import AddressDetails from '@/components/AddressDetails.vue'
+import CartListing from '@/components/CartListing.vue'
 
 export default {
   components: {
-    AddressDetails
+    AddressDetails,
+    CartListing
   },
   data() {
     return {
@@ -32,6 +34,8 @@ export default {
     </div>
 
     <h2>Your order</h2>
+    <CartListing />
+
     <h2>Continue to payment</h2>
   </main>
 </template>
