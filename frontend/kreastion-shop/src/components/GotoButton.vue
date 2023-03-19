@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <RouterLink to="/checkout">
     <button class="checkout">

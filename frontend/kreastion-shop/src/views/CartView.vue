@@ -21,8 +21,8 @@ export default {
 <template>
   <main>
     <h1>Cart</h1>
-    <CartListing />
-    <GotoButton>Go to checkout &RightArrow;</GotoButton>
+    <CartListing editable />
+    <GotoButton v-if="! cartStore.isEmpty">Go to checkout &RightArrow;</GotoButton>
   </main>
 </template>
 

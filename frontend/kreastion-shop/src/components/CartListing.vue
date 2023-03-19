@@ -8,6 +8,9 @@ export default {
     return {
       cartStore
     }
+  },
+  props: {
+    editable: Boolean
   }
 }
 </script>
@@ -29,7 +32,7 @@ export default {
       <td>&euro; {{ product.price }}</td>
       <td>{{ qty }}</td>
       <td>
-        <button class="remove" @click="cartStore.removeOrderLine(index)">
+        <button v-if="editable" class="remove" @click="cartStore.removeOrderLine(index)">
           <!-- <img src="@/assets/bin.svg" alt="remove orderline"> -->
           remove
         </button>
