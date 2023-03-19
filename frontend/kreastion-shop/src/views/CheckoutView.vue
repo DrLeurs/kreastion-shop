@@ -17,6 +17,7 @@ export default {
 <template>
   <main>
     <h1>Checkout</h1>
+
     <div class="wrapper">
       <div class="billing">
         <h2>Billing details</h2>
@@ -29,6 +30,7 @@ export default {
         <AddressDetails v-if="separateShipping" />
       </div>
     </div>
+
     <h2>Your order</h2>
     <h2>Continue to payment</h2>
   </main>
@@ -37,6 +39,10 @@ export default {
 <style scoped>
 h2 {
   margin-bottom: 1rem;
+}
+
+#shipping {
+  margin-right: .5rem;
 }
 
 .wrapper {

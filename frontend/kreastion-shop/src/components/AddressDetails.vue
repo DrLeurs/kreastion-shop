@@ -58,7 +58,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 /* h2 {
   margin-bottom: 1rem;
 } */
@@ -84,10 +84,6 @@ label > span {
 
 #postcode {
   width: 6em;
-}
-
-#shipping {
-  margin-right: .5rem;
 }
 
 input[type=text], select {
