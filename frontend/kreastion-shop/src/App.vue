@@ -29,6 +29,31 @@ export default {
   </header>
 
   <RouterView />
+
+  <footer>
+    <div class="address">
+      <h3>Kreastion vzw</h3>
+      <p>
+        Boekweitstraat 12<br>
+        2900 Schoten<br>
+        Belgium
+      </p>
+    </div>
+    <div class="vat">
+      <h3>VAT</h3>
+      <p>
+        BE 0818.416.021
+      </p>
+    </div>
+    <div class="bank">
+      <h3>Financial</h3>
+      <p>
+        BE69 0000 0000 0000<br>
+        BIC: ??
+      </p>
+    </div>
+    <!-- &copy; 2023 Kreastion vzw -->
+  </footer>
 </template>
 
 <style scoped>
@@ -65,6 +90,22 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+footer {
+  font-size: small;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--kr-c-grey);
+}
+
+footer h3 {
+  font-variant-caps: all-small-caps;
+  font-weight: 500;
 }
 
 @media (min-width: 1024px) {
