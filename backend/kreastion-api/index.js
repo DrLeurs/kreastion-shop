@@ -42,6 +42,8 @@ app.use(express.json());
 const routes = require('./routes/products');
 app.use('/api', routes);
 
+app.use('/static', express.static('public'));
+
 // Start server
 app.listen(process.env.SERVER_PORT, () => {
     console.log(`Server started on port ${process.env.SERVER_PORT}`);
