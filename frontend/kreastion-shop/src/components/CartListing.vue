@@ -31,7 +31,7 @@ export default {
       <td>{{ product.name }}</td>
       <td>&euro; {{ product.price }}</td>
       <td>
-        <input v-if="editable" type="number" size="4" v-model.number="cartStore.cart[index].qty">
+        <input v-if="editable" type="number" size="4" v-model.number="cartStore.cart[index].qty" min="1">
         <span v-if="!editable">{{ qty }}</span>
       </td>
       <td>

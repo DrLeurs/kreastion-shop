@@ -9,7 +9,7 @@ export default {
         <RouterLink :to="`/detail/${product._id}`">
             <img src="https://loremflickr.com/360/360" alt="">
             <h3>{{ product.name }}</h3>
-            &euro;{{ product.price }}
+            &euro; {{ product.price }}
         </RouterLink>
     </div>
 </template>

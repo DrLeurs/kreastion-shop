@@ -29,7 +29,9 @@ export default {
                 .then((data) => this.product = data);
         },
         addToCart() {
-            this.cartStore.addProduct(this.product, this.orderQuantity);
+            if (this.orderQuantity > 0) {
+                this.cartStore.addProduct(this.product, this.orderQuantity);
+            }
         }
     }
 }
@@ -63,8 +65,8 @@ export default {
                 </table>
 
                 <div class="order">
-                    <h2>&euro;{{ product.price }}</h2>
-                    Qty: <input type="number" size="4" v-model.number="orderQuantity">
+                    <h2>&euro; {{ product.price }}</h2>
+                    Qty: <input type="number" size="4" v-model.number="orderQuantity" min="1">
                     <button @click="addToCart">
                         <!-- <img alt="Kreastion logo" class="cart-logo" src="@/assets/cart.svg" /> -->
                         Add to cart
