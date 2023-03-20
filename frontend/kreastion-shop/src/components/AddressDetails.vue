@@ -59,49 +59,12 @@ export default {
 </template>
 
 <style scoped>
-/* h2 {
-  margin-bottom: 1rem;
-} */
-
-.line {
-  display: flex;
-  margin-bottom: 1rem;
-}
-
-label > span {
-  display: block;
-  font-size: small;
-}
-
-.required::after {
-  content: ' *';
-  color: var(--kr-c-red);
-}
-
 #address1, #address2, #email {
   width: 20em;
 }
 
 #postcode {
   width: 6em;
-}
-
-input[type=text], select {
-  font-family: inherit;
-  font-size: inherit;
-  background-color: hsl(0, 0%, 99%);
-  border: 1px solid hsl(0, 0%, 70%);
-  border-bottom: 3px solid hsl(0, 0%, 70%);
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  display: block;
-}
-
-input[type=text]:focus {
-  outline: none;
-  border: 1px solid var(--kr-c-grey);
-  border-bottom: 3px solid var(--kr-c-grey);
 }
 
 /* input[type=text]:valid {

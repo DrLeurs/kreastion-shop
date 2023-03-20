@@ -7,6 +7,12 @@ export default {
   components: {
     ProductCard
   },
+  props: {
+    editable: {
+      type: Boolean,
+      default: false
+    }
+  },
   mounted() {
     this.fetchProducts();
   },
@@ -27,7 +33,7 @@ export default {
 
 <template>
   <div class="wrapper">
-    <ProductCard v-for="product in products" :key="product._id" :product="product" />
+    <ProductCard v-for="product in products" :key="product._id" :product="product" :editable="editable" />
   </div>
 </template>
 

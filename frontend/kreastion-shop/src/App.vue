@@ -23,6 +23,7 @@ export default {
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/cart" class="cart">Cart ({{ cartStore.totalQty }})</RouterLink>
+        <RouterLink to="/admin">Admin</RouterLink>
       </nav>
       <!-- <button class="cart">Cart (0)</button> -->
     </div>

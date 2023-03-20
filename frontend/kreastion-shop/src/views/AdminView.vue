@@ -19,7 +19,7 @@ export default {
   <main>
     <h1>Admin</h1>
     <GotoButton to="/product/edit/0">&plus; Add</GotoButton>
-    <ProductListing />
+    <ProductListing editable/>
   </main>
 </template>
 

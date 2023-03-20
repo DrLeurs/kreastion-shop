@@ -1,48 +1,56 @@
 <script>
 export default {
-    props: ['product']
+  props: {
+    editable: Boolean,
+    product: Object
+  },
+  computed: {
+    linkTo() {
+      return this.editable ? '/product/edit/' : '/detail/';
+    }
+  }
 }
 </script>
 
 <template>
-    <div class="product">
-        <RouterLink :to="`/detail/${product._id}`">
-            <img :src="`http://localhost:3000/static/${product.image}`" alt="">
-            <h3>{{ product.name }}</h3>
-            <h3 class="price">&euro; {{ product.price }}</h3>
-        </RouterLink>
-    </div>
+  <div class="product">
+    <RouterLink :to="`${linkTo}${product._id}`">
+      <img :src="`http://localhost:3000/static/${product.image}`" alt="">
+      <h3>{{ product.name }}</h3>
+      <h3 class="price">&euro; {{ product.price }}</h3>
+    </RouterLink>
+  </div>
 </template>
 
 <style scoped>
 h3.price {
-    color: var(--kr-c-grey);
+  color: var(--kr-c-grey);
 }
 .product {
-    padding: 1em;
-    margin: 1rem;
-
-    /* background-color: var(--kr-c-white); */
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    transition: 0.2s;
+  padding: 1em;
+  margin: 1rem;
+  
+  /* background-color: var(--kr-c-white); */
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  transition: 0.2s;
 }
 
 .product:hover {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .product img {
-    width: 100%;
+  width: 100%;
 }
 
 .product > a {
-    color: inherit;
-    background-color: inherit;
+  color: inherit;
+  background-color: inherit;
 }
 
 @media (min-width: 1024px) {
-    .product {
-        width: 20%;
-    }
+  .product {
+    width: 20%;
+  }
 }
 </style>
