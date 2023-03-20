@@ -38,7 +38,7 @@ export default {
     <CartListing />
 
     <h2>Continue to payment</h2>
-    <GotoButton>Proceed to payment &rightarrow;</GotoButton>
+    <GotoButton to="/">Proceed to payment &rightarrow;</GotoButton>
   </main>
 </template>
 

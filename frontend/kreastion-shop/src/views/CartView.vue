@@ -22,7 +22,7 @@ export default {
   <main>
     <h1>Cart</h1>
     <CartListing editable />
-    <GotoButton v-if="! cartStore.isEmpty">Go to checkout &RightArrow;</GotoButton>
+    <GotoButton to="/checkout" v-if="! cartStore.isEmpty">Go to checkout &RightArrow;</GotoButton>
   </main>
 </template>
 

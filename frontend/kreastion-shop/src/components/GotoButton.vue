@@ -1,9 +1,11 @@
 <script>
-export default {}
+export default {
+  props: ['to']
+}
 </script>
 
 <template>
-  <RouterLink to="/checkout">
+  <RouterLink :to="to">
     <button class="checkout">
       <slot />
     </button>
@@ -14,7 +16,7 @@ export default {}
 button.checkout {
   background-color: var(--kr-c-red-dark);
   border: none;
-  padding: 0.8rem;
+  padding: 0.5rem;
   font-size: 1.5em;
   color: var(--kr-c-white-soft);
   font-variant-caps: all-small-caps;
