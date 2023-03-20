@@ -32,6 +32,10 @@ const dataSchema = new mongoose.Schema({
     format: {
         required: true,
         type: String
+    },
+    image: {
+        required: false,
+        type: String
     }
 });
 

@@ -1,5 +1,6 @@
 <script>
 import { useCartStore } from '@/stores/CartStore'
+import GotoButton from '@/components/GotoButton.vue'
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -10,6 +11,9 @@ export default {
         return {
             cartStore
         }
+    },
+    components: {
+        GotoButton
     },
     props: ['id'],
     mounted() {
@@ -39,10 +43,11 @@ export default {
 
 <template>
     <main>
-        <!-- <button class="return">&#x2190; Back</button> -->
+        <!-- <GotoButton>&leftarrow; Back</GotoButton> -->
         <h1>{{ product.name }}</h1>
+
         <div class="details">
-            <img src="https://loremflickr.com/360/360" alt="">
+            <img v-if="product.image" :src="`http://localhost:3000/static/${product.image}`" alt="">
 
             <div>
                 <table>
@@ -87,21 +92,6 @@ h2 {
     margin-bottom: 0.5em;
 }
 
-.return {
-    background-color: var(--kr-c-background);
-    border: 1px solid var(--kr-c-red);
-    border-radius: 5px;
-    color: var(--kr-c-red);
-    font-size: 15px;
-    padding: .5em;
-    transition: 0.4s;
-}
-
-.return:hover {
-    background-color: var(--kr-c-red-alpha);
-    color: var(--kr-c-grey);
-}
-
 th {
     font-weight: 500;
     text-align: left;
@@ -111,6 +101,7 @@ th {
 @media (min-width: 1024px) {
     img {
         width: 240px;
+        height: 240px;
     }
 
     .details {
