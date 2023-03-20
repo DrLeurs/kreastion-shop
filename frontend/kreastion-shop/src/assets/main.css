@@ -28,8 +28,13 @@ h1::after {
 }
 
 button {
-  font-family: Rubik, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-  Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  /* font-family: Rubik, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+  Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; */
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
 }
 
 @media (hover: hover) {

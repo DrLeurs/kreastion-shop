@@ -64,7 +64,7 @@ export default {
 
                 <div class="order">
                     <h2>&euro;{{ product.price }}</h2>
-                    Qty: <input type="number" size="5" v-model.number="orderQuantity">
+                    Qty: <input type="number" size="4" v-model.number="orderQuantity">
                     <button @click="addToCart">
                         <!-- <img alt="Kreastion logo" class="cart-logo" src="@/assets/cart.svg" /> -->
                         Add to cart

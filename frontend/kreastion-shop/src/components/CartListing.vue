@@ -30,7 +30,10 @@ export default {
       <td>{{ product.reference }}</td>
       <td>{{ product.name }}</td>
       <td>&euro; {{ product.price }}</td>
-      <td>{{ qty }}</td>
+      <td>
+        <input v-if="editable" type="number" size="4" v-model.number="cartStore.cart[index].qty">
+        <span v-if="!editable">{{ qty }}</span>
+      </td>
       <td>
         <button v-if="editable" class="remove" @click="cartStore.removeOrderLine(index)">
           <!-- <img src="@/assets/bin.svg" alt="remove orderline"> -->
