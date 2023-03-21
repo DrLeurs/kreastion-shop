@@ -15,9 +15,6 @@ const mongoose = require('mongoose');
 // MongoDB database url from .env
 const mongoURL = process.env.DATABASE_URL;
 
-/**
- * Connect to database
- */
 mongoose.connect(mongoURL);
 const database = mongoose.connection;
 
@@ -29,19 +26,16 @@ database.on('connected', () => {
     console.log('Connected to database');
 });
 
-/**
- * Setup express
- */
+// setup express
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-/**
- * Setup routes
- */
+// routes for products
 const routes = require('./routes/products');
 app.use('/api', routes);
 
+// route for static files - development
 app.use('/static', express.static('public'));
 
 // Start server

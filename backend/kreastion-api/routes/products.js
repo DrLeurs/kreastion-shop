@@ -4,7 +4,11 @@
 
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+
 const Product = require('../models/product');
+
+const upload = multer({ dest: 'public/' });
 
 // List all products
 router.get('/products', async (req, res) => {
@@ -73,6 +77,12 @@ router.delete('/product/:id', async (req, res) => {
     catch (error) {
         res.send.status(400).json({ message: error.message });
     }
+});
+
+// Upload an image
+router.post('/upload', upload.single('image'), async (req, res) => {
+    console.log(req.file.filename);
+    res.status(200).json({ filename: req.file.filename });
 });
 
 module.exports = router;
