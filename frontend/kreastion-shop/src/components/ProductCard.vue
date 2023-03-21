@@ -15,7 +15,8 @@ export default {
 <template>
   <div class="product">
     <RouterLink :to="`${linkTo}${product._id}`">
-      <img :src="`http://localhost:3000/static/${product.image}`" alt="">
+      <img v-if="product.image" :src="`http://localhost:3000/static/${product.image}`" alt="product image">
+      <img v-else src="http://localhost:3000/static/placeholder.png" alt="no image available">
       <h3>{{ product.name }}</h3>
       <h3 class="price">&euro; {{ product.price }}</h3>
     </RouterLink>

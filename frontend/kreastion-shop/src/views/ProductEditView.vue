@@ -10,10 +10,15 @@ export default {
   },
   data() {
     return {
-      product: {}
+      product: {},
+      saved: false
     }
   },
   methods: {
+    showSaved() {
+      this.saved = true;
+      setTimeout(() => { this.saved = false }, 3000);
+    },
     fetchProduct() {
       fetch(`${API_URL}/product/${this.id}`)
       .then((response) => response.json())
@@ -37,7 +42,7 @@ export default {
       
       fetch(url, requestHeaders)
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => this.showSaved());
     }
   }
 }
@@ -87,6 +92,7 @@ export default {
       </label>
     </div>
     <button @click="saveProduct">Save</button>
+    <span v-if="saved" class="saved">Saved!</span>
   </main>
 </template>
 
@@ -107,5 +113,10 @@ export default {
   resize: none;
   width: 41em;
   height: 10em;
+}
+
+.saved {
+  color: hsl(145, 39%, 34%);
+  margin-left: 1rem;
 }
 </style>

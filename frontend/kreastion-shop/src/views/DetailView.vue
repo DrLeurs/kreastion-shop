@@ -48,6 +48,7 @@ export default {
     
     <div class="details">
       <img v-if="product.image" :src="`http://localhost:3000/static/${product.image}`" alt="">
+      <img v-else src="http://localhost:3000/static/placeholder.png" alt="no image available">
       
       <div>
         <table>
