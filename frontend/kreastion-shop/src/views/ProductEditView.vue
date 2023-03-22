@@ -6,6 +6,7 @@ export default {
   mounted() {
     if (this.id != 0) {
       this.fetchProduct();
+      window.scrollTo(0, 0);
     }
   },
   data() {
@@ -110,12 +111,14 @@ export default {
         <textarea id="description" v-model="product.description"></textarea>
       </label>
     </div>
-    <div class="line">
+    <div class="line base">
       <label for="image">
         <span>Image {{ uploaded ? 'uploaded' : '' }}</span>
         <input type="file" name="imageFile" id="imageFile" @change="uploadImage($event)">
       </label>
     </div>
+    <img v-if="product.image" :src="`http://localhost:3000/static/${product.image}`" alt="no image available">
+    <img v-else src="http://localhost:3000/static/placeholder.png" alt="no image available">
     <button @click="saveProduct">Save</button>
     <span v-if="saved" class="saved">Saved!</span>
   </main>
@@ -143,5 +146,15 @@ export default {
 .saved {
   color: var(--kr-c-green);
   margin-left: 1rem;
+}
+
+@media (min-width: 1024px) {
+  img {
+    width: 240px;
+    height: 240px;
+    border: 1px solid;
+    display: block;
+    margin-bottom: 1rem;
+  }
 }
 </style>
