@@ -81,7 +81,6 @@ router.delete('/product/:id', async (req, res) => {
 
 // Upload an image
 router.post('/upload', upload.single('image'), async (req, res) => {
-    console.log(req.file.filename);
     res.status(200).json({ filename: req.file.filename });
 });
 

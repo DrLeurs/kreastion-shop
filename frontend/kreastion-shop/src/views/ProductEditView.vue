@@ -11,7 +11,8 @@ export default {
   data() {
     return {
       product: {},
-      saved: false
+      saved: false,
+      uploaded: false
     }
   },
   methods: {
@@ -43,6 +44,24 @@ export default {
       fetch(url, requestHeaders)
         .then((response) => response.json())
         .then((data) => this.showSaved());
+    },
+    uploadImage(event) {
+      let formData = new FormData();
+      formData.append('image', event.target.files[0]);
+
+      fetch(`${API_URL}/upload`, {
+        method: 'POST',
+        // Don't set Content-Type, browser will do it for us!
+        // headers: {
+        //   'Content-Type': 'multipart/form-data'
+        // },
+        body: formData
+      })
+        .then((response) => { if (response.status == 200) { return response.json() }})
+        .then((data) => {
+          this.product.image = data.filename;
+          this.uploaded = true;
+        });
     }
   }
 }
@@ -91,6 +110,12 @@ export default {
         <textarea id="description" v-model="product.description"></textarea>
       </label>
     </div>
+    <div class="line">
+      <label for="image">
+        <span>Image {{ uploaded ? 'uploaded' : '' }}</span>
+        <input type="file" name="imageFile" id="imageFile" @change="uploadImage($event)">
+      </label>
+    </div>
     <button @click="saveProduct">Save</button>
     <span v-if="saved" class="saved">Saved!</span>
   </main>
@@ -116,7 +141,7 @@ export default {
 }
 
 .saved {
-  color: hsl(145, 39%, 34%);
+  color: var(--kr-c-green);
   margin-left: 1rem;
 }
 </style>
