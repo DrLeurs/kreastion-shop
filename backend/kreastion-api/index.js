@@ -11,6 +11,7 @@ require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 // MongoDB database url from .env
 const mongoURL = process.env.DATABASE_URL;
@@ -28,8 +29,16 @@ database.on('connected', () => {
 
 // setup express
 const app = express();
+
+// setup middleware
 app.use(cors());
 app.use(express.json());
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {}
+}));
 
 // routes for products
 const routes = require('./routes/products');
