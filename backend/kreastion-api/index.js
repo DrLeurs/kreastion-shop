@@ -41,8 +41,12 @@ app.use(session({
 }));
 
 // routes for products
-const routes = require('./routes/products');
-app.use('/api', routes);
+const productRoutes = require('./routes/products');
+app.use('/api', productRoutes);
+
+// routes for users
+const userRoutes = require('./routes/users');
+app.use('/api', userRoutes);
 
 // route for static files - development
 app.use('/static', express.static('public'));

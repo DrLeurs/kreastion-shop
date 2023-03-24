@@ -1,14 +1,16 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 import { useCartStore } from '@/stores/CartStore'
+import { useUserStore } from '@/stores/UserStore'
 
-// const cartStore = useCartStore();
 export default {
   setup() {
     const cartStore = useCartStore();
+    const userStore = useUserStore();
 
     return {
-      cartStore
+      cartStore,
+      userStore
     }
   }
 }
@@ -23,7 +25,9 @@ export default {
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/cart" class="cart">Cart ({{ cartStore.totalQty }})</RouterLink>
-        <RouterLink to="/admin">Admin</RouterLink>
+        <RouterLink v-if="!userStore.isAuthenticated" to="/login">Login</RouterLink>
+        <RouterLink v-if="userStore.isAuthenticated" to="/admin">Admin</RouterLink>
+        <a v-if="userStore.isAuthenticated" @click="userStore.logout()">Logout {{ userStore.user.firstName }}</a>
       </nav>
       <!-- <button class="cart">Cart (0)</button> -->
     </div>
@@ -87,6 +91,7 @@ nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
+  cursor: pointer;
 }
 
 nav a:first-of-type {

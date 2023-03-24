@@ -43,6 +43,11 @@ const router = createRouter({
       name: 'product-edit',
       component: () => import('../views/ProductEditView.vue'),
       props: true
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue')
     }
   ]
 })
