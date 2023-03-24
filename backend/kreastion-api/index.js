@@ -40,13 +40,13 @@ app.use(session({
     cookie: {}
 }));
 
-// routes for products
-const productRoutes = require('./routes/products');
-app.use('/api', productRoutes);
-
 // routes for users
 const userRoutes = require('./routes/users');
 app.use('/api', userRoutes);
+
+// routes for products
+const productRoutes = require('./routes/products');
+app.use('/api', productRoutes);
 
 // route for static files - development
 app.use('/static', express.static('public'));

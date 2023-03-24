@@ -7,6 +7,7 @@ const router = express.Router();
 const multer = require('multer');
 
 const Product = require('../models/product');
+const { isAuthenticated } = require('./middlewares');
 
 const upload = multer({ dest: 'public/' });
 
@@ -35,7 +36,7 @@ router.get('/product/:id', async (req, res) => {
 
 
 // Create new product
-router.post('/products', async (req, res) => {
+router.post('/products', isAuthenticated, async (req, res) => {
     const product = new Product(req.body);
 
     try {
@@ -49,7 +50,7 @@ router.post('/products', async (req, res) => {
 
 
 // Patch/update product
-router.patch('/product/:id', async (req, res) => {
+router.patch('/product/:id', isAuthenticated, async (req, res) => {
     try {
         const id = req.params.id;
         const productData = req.body;
@@ -68,7 +69,7 @@ router.patch('/product/:id', async (req, res) => {
 
 
 // Delete a product
-router.delete('/product/:id', async (req, res) => {
+router.delete('/product/:id', isAuthenticated, async (req, res) => {
     try {
         const id = req.params.id;
         const deletedProduct = await Product.findByIdAndRemove(id);
@@ -80,7 +81,7 @@ router.delete('/product/:id', async (req, res) => {
 });
 
 // Upload an image
-router.post('/upload', upload.single('image'), async (req, res) => {
+router.post('/upload', isAuthenticated, upload.single('image'), async (req, res) => {
     res.status(200).json({ filename: req.file.filename });
 });
 
