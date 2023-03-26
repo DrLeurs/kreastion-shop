@@ -22,7 +22,9 @@ export default {
       setTimeout(() => { this.saved = false }, 3000);
     },
     fetchProduct() {
-      fetch(`${API_URL}/product/${this.id}`)
+      fetch(`${API_URL}/product/${this.id}`, {
+        credentials: 'include'
+      })
       .then((response) => response.json())
       .then((data) => this.product = data);
     },
@@ -30,6 +32,7 @@ export default {
       let url = API_URL;
       let requestHeaders = {
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify(this.product)
       };
       
@@ -52,6 +55,7 @@ export default {
 
       fetch(`${API_URL}/upload`, {
         method: 'POST',
+        credentials: 'include',
         // Don't set Content-Type, browser will do it for us!
         // headers: {
         //   'Content-Type': 'multipart/form-data'

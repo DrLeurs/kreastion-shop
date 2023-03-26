@@ -31,13 +31,20 @@ database.on('connected', () => {
 const app = express();
 
 // setup middleware
-app.use(cors());
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:5173'
+}));
 app.use(express.json());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: {}
+    cookie: {
+        secure: false,
+        httpOnly: true,
+        sameSite: 'strict'
+    }
 }));
 
 // routes for users

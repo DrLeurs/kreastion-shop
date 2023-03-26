@@ -27,7 +27,7 @@ export default {
         <RouterLink to="/cart" class="cart">Cart ({{ cartStore.totalQty }})</RouterLink>
         <RouterLink v-if="!userStore.isAuthenticated" to="/login">Login</RouterLink>
         <RouterLink v-if="userStore.isAuthenticated" to="/admin">Admin</RouterLink>
-        <a v-if="userStore.isAuthenticated" @click="userStore.logout()">Logout {{ userStore.user.firstName }}</a>
+        <a v-if="userStore.isAuthenticated" @click="userStore.logout()">Logout {{ userStore.user.name.first }}</a>
       </nav>
       <!-- <button class="cart">Cart (0)</button> -->
     </div>

@@ -11,14 +11,15 @@ export const useUserStore = defineStore('user', {
     },
 
     actions: {
-        login(username, password) {
-            fetch(`${API_URL}/user/login`, {
+        login(email, password) {
+            fetch(`${API_URL}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                credentials: 'include',
                 body: JSON.stringify({
-                    username: username,
+                    email: email,
                     password: password
                 })
             })
@@ -29,17 +30,21 @@ export const useUserStore = defineStore('user', {
                 });
         },
         checkin() {
-            fetch(`${API_URL}/user/checkin`)
+            fetch(`${API_URL}/checkin`, {
+                credentials: 'include'
+            })
                 .then((response) => response.json())
                 .then((data) => {
                     if (data._id) this.user = data;
                 });
         },
         logout() {
-            console.log('LGOUT');
-            fetch(`${API_URL}/user/logout`)
+            fetch(`${API_URL}/logout`, {
+                credentials: 'include',
+            })
                 .then((response) => {
                     if (response.status == 200) {
+                        console.log('LGOUT 200');
                         this.user = {};
                         router.push('/');
                     }

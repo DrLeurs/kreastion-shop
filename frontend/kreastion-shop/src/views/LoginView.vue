@@ -11,13 +11,13 @@ export default {
   },
   data() {
     return {
-      username: '',
+      email: '',
       password: ''
     }
   },
   methods: {
     login() {
-      this.userStore.login(this.username, this.password);
+      this.userStore.login(this.email, this.password);
     }
   }
 }
@@ -26,9 +26,9 @@ export default {
 <template>
   <main>
     <h1>Login</h1>
-    <label for="username">
-      <span class="required">Username</span>
-      <input type="text" id="username" v-model="username">
+    <label for="email">
+      <span class="required">Email</span>
+      <input type="text" id="email" v-model="email">
     </label>
     <label for="password">
       <span class="required">Password</span>
@@ -37,3 +37,9 @@ export default {
     <button @click="login">Login</button>
   </main>
 </template>
+
+<style scoped>
+#email {
+  width: 18em;
+}
+</style>
