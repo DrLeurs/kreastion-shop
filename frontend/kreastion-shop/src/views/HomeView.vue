@@ -34,10 +34,15 @@ export default {
 .banner > h1 {
   color: var(--kr-c-white);
   text-shadow: 2px 2px 5px black;
-  font-size: 5em;
 }
 
 .banner > h1::after {
   content: '';
+}
+
+@media (min-width: 1024px) {
+  .banner > h1 {
+    font-size: 5em;
+  }
 }
 </style>
