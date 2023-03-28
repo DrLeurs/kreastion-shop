@@ -12,6 +12,9 @@ export default {
       cartStore,
       userStore
     }
+  },
+  mounted() {
+    this.userStore.checkin();
   }
 }
 </script>

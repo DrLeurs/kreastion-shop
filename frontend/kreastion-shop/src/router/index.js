@@ -1,5 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { useUserStore } from '@/stores/UserStore'
+
+
+/**
+ * Guard for auth protected routes 
+ */
+function guardAuthenticated(to, from) {
+  const userStore = useUserStore();
+  
+  if (!userStore.isAuthenticated && to.name !== 'login') {
+    return { name: 'login' }
+  }
+}
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,12 +50,14 @@ const router = createRouter({
     {
       path: '/admin',
       name: 'admin',
-      component: () => import('../views/AdminView.vue')
+      component: () => import('../views/AdminView.vue'),
+      beforeEnter: guardAuthenticated
     },
     {
       path: '/product/edit/:id',
       name: 'product-edit',
       component: () => import('../views/ProductEditView.vue'),
+      beforeEnter: guardAuthenticated,
       props: true
     },
     {
