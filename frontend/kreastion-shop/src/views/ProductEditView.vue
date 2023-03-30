@@ -13,7 +13,8 @@ export default {
     return {
       product: {},
       saved: false,
-      uploaded: false
+      uploaded: false,
+      debounceTimer: null
     }
   },
   methods: {
@@ -62,11 +63,16 @@ export default {
         // },
         body: formData
       })
-        .then((response) => { if (response.status == 200) { return response.json() }})
+        .then((response) => { if (response.status == 200) { return response.json() } })
         .then((data) => {
           this.product.image = data.filename;
           this.uploaded = true;
         });
+    },
+    // debounced updateTags
+    updateTags(event) {
+      clearTimeout(this.debounceTimer);
+      this.debounceTimer = setTimeout(() => this.product.tags = event.target.value.split(','), 600);
     }
   }
 }
@@ -113,6 +119,12 @@ export default {
       <label for="description">
         <span>Description</span>
         <textarea id="description" v-model="product.description"></textarea>
+      </label>
+    </div>
+    <div class="line">
+      <label for="tags">
+        <span>Tags</span>
+        <input type="text" id="tags" :value="product.tags" @input="updateTags">
       </label>
     </div>
     <div class="line base">

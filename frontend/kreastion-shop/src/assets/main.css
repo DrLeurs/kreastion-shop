@@ -37,7 +37,7 @@ input, textarea, select {
   font-family: inherit;
 }
 
-input[type=text], textarea, select {
+input[type=text], input[type=search], textarea, select {
   font-size: inherit;
   background-color: hsl(0, 0%, 99%);
   border: 1px solid hsl(0, 0%, 70%);
@@ -48,10 +48,21 @@ input[type=text], textarea, select {
   display: block;
 }
 
-input[type=text]:focus, textarea:focus {
+input[type=text]:focus, input[type=search]:focus, textarea:focus {
   outline: none;
   border: 1px solid var(--kr-c-grey);
   border-bottom: 3px solid var(--kr-c-grey);
+}
+
+input[type=search] {
+  border-bottom: 1px solid hsl(0, 0%, 70%);
+  background: url(http://localhost:3000/static/search.svg) no-repeat 0.5em center;
+  background-size: 1em;
+  padding-left: 2em;
+}
+
+input[type=search]:focus {
+  border-bottom: 1px solid var(--kr-c-grey);
 }
 
 .line {

@@ -69,6 +69,10 @@ export default {
             <td>{{ product.reference }}</td>
           </tr>
         </table>
+
+        <p class="tags" v-if="product.tags">
+          <span v-for="tag in product.tags">{{ tag }}</span>
+        </p>
         
         <div class="order">
           <h2>&euro; {{ product.price }}</h2>
@@ -103,6 +107,19 @@ th {
   img {
     width: 240px;
     height: 240px;
+  }
+
+  .tags {
+    margin-top: 1rem;
+  }
+
+  .tags > span {
+    color: var(--kr-c-grey);
+    margin-right: 1em;
+  }
+
+  .tags > span::before {
+    content: '#';
   }
   
   .details {

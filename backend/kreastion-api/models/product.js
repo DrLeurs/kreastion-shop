@@ -36,7 +36,8 @@ const dataSchema = new mongoose.Schema({
     image: {
         required: false,
         type: String
-    }
+    },
+    tags: [String]
 });
 
 module.exports = mongoose.model('Product', dataSchema);
