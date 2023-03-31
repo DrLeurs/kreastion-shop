@@ -53,7 +53,7 @@ export default {
 
 <template>
   <div class="search">
-    <input type="search" name="searchtext" id="searchtext" placeholder="Search products" @input="setFilter">
+    <input type="search" name="searchtext" id="searchtext" placeholder="Search products by name or composer" @input="setFilter">
   </div>
   <div class="wrapper">
     <ProductCard v-for="product in filteredProducts" :key="product._id" :product="product" :editable="editable" />
